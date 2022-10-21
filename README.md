@@ -75,7 +75,7 @@ The tool will convert .xlsx documents to JSON representation as collection of tr
   - Information whether times should be offseted by another 30 seconds (symbol '5' in table) in time cells
   - Name of station
 - If train schedule can't be processed, user is provided with error log
-  - Entire execution is not haulted in case of recoverable failure of single train schedule
+  - Entire execution is not halted in case of recoverable failure of single train schedule
 - Train type information is provided (Ex, R, Os, ...)
 
 ## Analysis
