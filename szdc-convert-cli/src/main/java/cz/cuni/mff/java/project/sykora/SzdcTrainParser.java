@@ -10,6 +10,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ Converts train timetables data in Excel sheet to its JSON representation.
+ @author Jakub Sykora
+ @version 1.0.0
+ @since 1.4.2023
+ */
 public class SzdcTrainParser {
 
     public static int ParseTrain(File trainRailwaySchedulesFile, File outputDir) throws ImportException {
