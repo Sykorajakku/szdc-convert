@@ -6,7 +6,9 @@ import org.json.JSONObject;
 import java.util.List;
 
 /**
- Writes trains into JSON object.
+
+ The JsonTrainWriter class is responsible for converting train schedules into a JSON object.
+ The class implements the TrainWriter interface.
  @author Jakub Sykora
  @version 1.0.0
  @since 1.4.2023
@@ -16,14 +18,17 @@ public class JsonTrainWriter implements TrainWriter {
     private final JSONObject trains;
 
     /**
-     * Internally creates JSON array which each train being appended to the array.
+     Constructor for the JsonTrainWriter class.
+     Initializes an empty JSON object to store train information.
      */
     public JsonTrainWriter() {
         trains = new JSONObject();
     }
 
     /**
-     * Attach train to JSON array.
+     Adds a Train object to the internal JSON object.
+     The method creates a JSON representation of the train and appends it to the internal JSON object.
+     @param train The Train object to be written into the JSON object.
      */
     @Override
     public void writeTrain(Train train) {
@@ -68,7 +73,8 @@ public class JsonTrainWriter implements TrainWriter {
     }
 
     /**
-     * Attaches current JSON array to returned JSON object.
+     Constructs a root JSON object containing the JSON object representing all the trains.
+     @return A JSON object containing the "trains" key with the JSON object representing all the trains.
      */
     public JSONObject createRootJsonObject() {
         var root = new JSONObject();

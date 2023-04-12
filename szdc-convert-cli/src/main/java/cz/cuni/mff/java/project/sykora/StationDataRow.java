@@ -3,10 +3,12 @@ package cz.cuni.mff.java.project.sykora;
 import lombok.Data;
 
 /**
- Intermediate parsed data grouping raw data from Excel sheet about arrival and departure to station.
- @author Jakub Sykora
- @version 1.0.0
- @since 1.4.2023
+    The StationDataRow class represents intermediate parsed data from an Excel sheet,
+    containing information about a train's arrival and departure times at a specific station.
+    This class is used to group raw data for further processing.
+    @author Jakub Sykora
+    @version 1.0.0
+    @since 1.4.2023
  */
 @Data
 public class StationDataRow {

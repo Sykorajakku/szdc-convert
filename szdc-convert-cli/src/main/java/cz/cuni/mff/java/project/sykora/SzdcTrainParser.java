@@ -7,10 +7,12 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- Converts train timetables data in Excel sheet to its JSON representation.
- @author Jakub Sykora
- @version 1.0.0
- @since 1.4.2023
+    The SzdcTrainParser class is responsible for converting train timetables from an Excel sheet into a JSON
+    representation. The class reads the Excel file and processes the train schedule data using the provided
+    TrainWriter and ParserLogger implementations.
+    @author Jakub Sykora
+    @version 1.0.0
+    @since 1.4.2023
  */
 public class SzdcTrainParser {
 
@@ -19,7 +21,9 @@ public class SzdcTrainParser {
     private final ParserLogger parserLogger;
 
     /**
-     * Creates train parser with provided output implementations.
+         Constructs a SzdcTrainParser instance with the provided TrainWriter and ParserLogger implementations.
+         @param trainWriter The TrainWriter to be used for converting train data to JSON.
+         @param parserLogger The ParserLogger to be used for logging parsing results.
      */
     public SzdcTrainParser(TrainWriter trainWriter, ParserLogger parserLogger) {
         this.trainWriter = trainWriter;
@@ -27,7 +31,9 @@ public class SzdcTrainParser {
     }
 
     /**
-     * Parse trains from given excel file.
+         Parses train schedules from the given Excel file and writes the parsed data to the TrainWriter.
+         @param trainRailwaySchedulesFile The Excel file containing train schedules.
+         @throws ImportException If an error occurs while processing the Excel file.
      */
     public void parseTrains(File trainRailwaySchedulesFile) throws ImportException {
 

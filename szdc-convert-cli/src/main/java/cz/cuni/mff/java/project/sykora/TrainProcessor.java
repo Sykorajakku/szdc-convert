@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Internal implementation of parser which iterates excel rows and parses train data in automata transitions manner.
+    The TrainProcessor class is an internal implementation of a parser that iterates through Excel rows,
+    parsing train data using an automata transition approach. It processes rows and extracts train data,
+    handling different states of the parsing process.
  */
 public class TrainProcessor {
 

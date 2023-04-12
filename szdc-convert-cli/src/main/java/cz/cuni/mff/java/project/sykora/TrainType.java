@@ -4,7 +4,7 @@ import lombok.Getter;
 import java.util.Optional;
 
 /**
- * Represents type of train.
+ * Enum representing various train types.
  */
 @Getter
 public enum TrainType {
@@ -21,12 +21,20 @@ public enum TrainType {
 
     private final String description;
 
+    /**
+     * Constructor for TrainType enum.
+     *
+     * @param description A string representing the train type description.
+     */
     TrainType(String description) {
         this.description = description;
     }
 
     /**
-     * Try parse enum train type given textual description.
+     * Attempts to parse the TrainType enum given a textual description.
+     *
+     * @param string A string representing the train type description.
+     * @return An Optional<TrainType> object containing the train type if found, or an empty Optional if not found.
      */
     public static Optional<TrainType> TryGetTrainType(String string) {
 
