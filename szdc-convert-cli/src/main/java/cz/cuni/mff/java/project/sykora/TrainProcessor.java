@@ -158,7 +158,7 @@ public class TrainProcessor {
             return;
         }
 
-        if (TrainType.TryGetTrainType(stationColumnString).isPresent()) {
+        if (TrainType.tryGetTrainType(stationColumnString).isPresent()) {
 
             categorizeSchedule(currentTrain.getStationDataRows(), arrivalTimes, departureTimes);
             parsedTrains.add(currentTrain);
@@ -295,7 +295,7 @@ public class TrainProcessor {
             var cellStringContent = cell.getStringCellValue();
 
 
-            var trainType = TrainType.TryGetTrainType(cellStringContent);
+            var trainType = TrainType.tryGetTrainType(cellStringContent);
 
             if (trainType.isPresent()) {
 

@@ -36,7 +36,7 @@ public enum TrainType {
      * @param string A string representing the train type description.
      * @return An Optional<TrainType> object containing the train type if found, or an empty Optional if not found.
      */
-    public static Optional<TrainType> TryGetTrainType(String string) {
+    public static Optional<TrainType> tryGetTrainType(String string) {
 
         for (var value : TrainType.values()) {
             if (string.startsWith(value.description + ' ')) {
