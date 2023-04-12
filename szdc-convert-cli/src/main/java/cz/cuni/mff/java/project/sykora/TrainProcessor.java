@@ -7,6 +7,9 @@ import org.apache.poi.ss.util.CellRangeAddress;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Internal implementation of parser which iterates excel rows and parses train data in automata transitions manner.
+ */
 public class TrainProcessor {
 
     private final List<CellRangeAddress> mergedRegions;
@@ -39,12 +42,21 @@ public class TrainProcessor {
 
     private ProcessorState processorState;
 
-    public TrainProcessor(List<CellRangeAddress> mergedRegions) {
+    private final ParserLogger logger;
+
+    /**
+     * Create train processor using pre-processed merged regions of excel sheet.
+     */
+    public TrainProcessor(List<CellRangeAddress> mergedRegions, ParserLogger logger) {
 
         this.mergedRegions = mergedRegions;
         this.processorState = ProcessorState.AwaitingTrainDefinition;
+        this.logger = logger;
     }
 
+    /**
+     * Process the following row.
+     */
     public void processRow(Row row) {
 
         currentRow = row;
@@ -56,18 +68,18 @@ public class TrainProcessor {
             TryParseTrainHeader();
         }
         else if (processorState == ProcessorState.ParsingSchedule) {
-        try {
-                TryParseTrainScheduleEvent();
-            }catch(Exception ex) {
 
-                System.out.println("Unable to parse train: " + currentTrain.getTrainNumber());
+            try {
+                TryParseTrainScheduleEvent();
+            }
+            catch(Exception ex) {
+                logger.logTrainParseError("Unable to parse train: " + currentTrain.getTrainNumber());
                 arrivalTimes.clear();
                 departureTimes.clear();
                 currentTrain = null;
                 arrivalHour = 0;
                 departureHour = 0;
                 stationNameColumnIndex = departureTimeColumnIndex = arrivalTimeColumnIndex = -1;
-
                 processorState = ProcessorState.AwaitingTrainDefinition;
             }
         }

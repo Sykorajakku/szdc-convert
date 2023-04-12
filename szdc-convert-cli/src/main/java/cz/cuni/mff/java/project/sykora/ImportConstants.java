@@ -9,7 +9,7 @@ package cz.cuni.mff.java.project.sykora;
 public class ImportConstants {
 
     /**
-    * Default name of the first sheet in an Excel workbook or spreadsheet ("Table 1")
+    * Default name of the first sheet in an Excel workbook or spreadsheet ("Sheet1")
     */
-    public static final String ScheduleSheetName = "Table 1";
+    public static final String ScheduleSheetName = "Sheet1";
 }

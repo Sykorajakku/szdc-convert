@@ -38,13 +38,10 @@ public class MovementTime {
         if (hour < other.hour) return true;
         else if (hour > other.hour) return false;
         else {
-
             if (minute < other.minute) return true;
             else if (minute > other.minute) return false;
             else {
-
-                if (!other.isMoreThan30Seconds() && isMoreThan30Seconds()) return false;
-                return true;
+                return other.isMoreThan30Seconds() || !isMoreThan30Seconds();
             }
         }
     }

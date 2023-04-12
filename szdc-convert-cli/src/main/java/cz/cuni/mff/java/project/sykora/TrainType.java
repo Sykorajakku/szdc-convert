@@ -3,6 +3,9 @@ package cz.cuni.mff.java.project.sykora;
 import lombok.Getter;
 import java.util.Optional;
 
+/**
+ * Represents type of train.
+ */
 @Getter
 public enum TrainType {
 
@@ -22,6 +25,9 @@ public enum TrainType {
         this.description = description;
     }
 
+    /**
+     * Try parse enum train type given textual description.
+     */
     public static Optional<TrainType> TryGetTrainType(String string) {
 
         for (var value : TrainType.values()) {
