@@ -1,7 +1,8 @@
 # szdc-convert - Java Semester Project Specification
 
-Java CLI tool that converts train timetables in XLSX format to more machine-friendly JSON.
+Java CLI tool that converts train timetables in XLSX format to more machine-friendly JSON. Use `mvn compile` as with any Maven project.
 Run the compiled program, providing the input and output folder paths as arguments. Folder `xlsx` contains input documents and should be used as input folder.
+The JSONs for each `.xlsx` file is then found in the output folder.
 
 ## Introduction
 
@@ -68,7 +69,7 @@ For this example of train EX 102, the tool will produce following output:
 
 ## Specification
 
-The tool will convert XLSX documents to JSON representation as collection of train schedules, with the following rules:
+The tool converts XLSX documents to JSON representation as collection of train schedules, with the following rules:
 
 - For each train, the following data will be supported:
   - Arrival times (not in offset format as in PDF, exact time will be computed)
@@ -81,10 +82,10 @@ The tool will convert XLSX documents to JSON representation as collection of tra
 
 ## Analysis
 
-Libraries for processing xlsx format and generating JSON files will be used. The most difficult part is to correctly process XLSX format -- files contain so called _merged cells_ which are cell spanning across multiple rows. Processing other information after rows / columns after merged must be correctly offseted. Cell context must be properly parsed (e.g. station names). Logic to compute exact times from time offsets in tables must be implemented.
+Libraries for processing xlsx format and generating JSON files are be used. The most difficult part is to correctly process XLSX format -- files contain so called _merged cells_ which are cell spanning across multiple rows. Processing other information after rows / columns after merged must be correctly offseted. Cell context must be properly parsed (e.g. station names). Logic to compute exact times from time offsets in tables must be implemented.
 
 Tool can be structured into several classes to be modular enough to support other output formats (e.g. XML) and processing can be structured as sequence of several iterators. Exception handling needs to be implemented correctly.
 
 ## Additional Notes
 
-The project will use Maven, with `org.apache.poi` libraries for reading the files in a streamed manner (not keeping entire file in memory). Test xlsx files will be provided. This tool was developed as part of my bachelor’s thesis and needs to be refactored / properly documented.
+The project use Maven, with `org.apache.poi` libraries for reading the files in a streamed manner (not keeping entire file in memory).
