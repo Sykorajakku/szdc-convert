@@ -1,6 +1,7 @@
 # szdc-convert - Java Semester Project Specification
 
 Java CLI tool that converts train timetables in XLSX format to more machine-friendly JSON.
+Run the compiled program, providing the input and output folder paths as arguments. Folder `xlsx` contains input documents and should be used as input folder.
 
 ## Introduction
 

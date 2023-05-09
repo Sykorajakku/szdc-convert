@@ -8,11 +8,22 @@ public class Main {
 
     public static void main(String[] args) throws ImportException {
         if (args.length < 2) {
-            System.out.println("Exiting, both folder with excel files and output folders needs to be provided.");
+            System.out.println("Exiting, both folder with excel files and output folders need to be provided.");
+            System.exit(1);
         }
 
         File inputFolder = new File(args[0]);
         File outputFolder = new File(args[1]);
+
+        if (!inputFolder.exists() || !inputFolder.isDirectory()) {
+            System.out.println("Input folder does not exist or is not a directory.");
+            System.exit(1);
+        }
+
+        if (!outputFolder.exists() || !outputFolder.isDirectory()) {
+            System.out.println("Output folder does not exist or is not a directory.");
+            System.exit(1);
+        }
 
         File[] listOfFiles = inputFolder.listFiles();
 
@@ -38,4 +49,5 @@ public class Main {
             }
         }
     }
+
 }
