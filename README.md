@@ -1,7 +1,13 @@
 # szdc-convert - Java Semester Project Specification
 
-Java CLI tool that converts train timetables in XLSX format to more machine-friendly JSON. Use `mvn compile` as with any Maven project.
-Run the compiled program, providing the input and output folder paths as arguments. Folder `xlsx` contains input documents and should be used as input folder.
+Java CLI tool that converts train timetables in XLSX format to more machine-friendly JSON.
+
+## Usage
+
+1. `mvn install` in `szdc-convert-cli` folder
+2. execute the CLI application with provided arguments: `szdc-convert-cli/target/szdc-convert-cli-1.0-SNAPSHOT-jar-with-dependencies.jar <input folder> <output folder>` (output folder must exist)
+
+Folder `xlsx` contains input documents and should be used as input folder.
 The JSONs for each `.xlsx` file is then found in the output folder.
 
 ## Introduction
